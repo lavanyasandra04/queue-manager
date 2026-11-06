@@ -1,13 +1,13 @@
 # Queue Manager (Java + MySQL)
 
-Full-stack queue management app for the Rugas full-stack assignment.
+Full-stack queue management app. Managers create queues, add people as tokens, call the next person, and track queue analytics.
 
 **Stack:** Java 17+ · Spring Boot 3 (REST API) · MySQL 8 · JDBC · JWT login with BCrypt-hashed passwords · vanilla JS frontend (served by Spring Boot, no build step) · Chart.js dashboard.
 
-## Features (mapped to the assignment)
+## Features
 
-| # | Requirement | Where |
-|---|-------------|-------|
+| # | Feature | Where |
+|---|---------|-------|
 | 1 | Manager can log in and create queues | Register / Log in screen, "New queue" in the sidebar |
 | 2 | Each queue has a name | `queues.name` |
 | 3 | Add a person, a token is created | "Add to queue" gives a per-queue token number (#001, #002 ...) |
@@ -20,12 +20,7 @@ Full-stack queue management app for the Rugas full-stack assignment.
 ## Setup
 
 1. Install **JDK 17+** and **MySQL 8** (make sure the MySQL server is running).
-2. Open `src/main/resources/application.properties` and set your MySQL username and password:
-   ```
-   spring.datasource.username=root
-   spring.datasource.password=YOUR_PASSWORD
-   ```
-   (or set environment variables `DB_USER` and `DB_PASSWORD` instead of editing the file).
+2. Set an environment variable named `DB_PASSWORD` with your MySQL root password. The app connects as user `root` (change `spring.datasource.username` in `src/main/resources/application.properties` if your MySQL user is different).
 3. The database `queuedb` and all tables are created automatically on first start. You can also create the database yourself first: `CREATE DATABASE queuedb;`
 4. Run:
    ```bash
